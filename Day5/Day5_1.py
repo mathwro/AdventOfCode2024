@@ -24,12 +24,11 @@ for line in pagenumbers:
   list_of_numbers = line.split(',')
   relevant_rules = []
   marked_incorrect=False
-  if find_rules(list_of_numbers):
-    result, relevant_rules = find_rules(list_of_numbers)
-    if result:
-      for rule in relevant_rules:
-        if not (list_of_numbers.index(rule[0]) < list_of_numbers.index(rule[1])):
-          marked_incorrect = True
+  result, relevant_rules = find_rules(list_of_numbers)
+  if result:
+    for rule in relevant_rules:
+      if not (list_of_numbers.index(rule[0]) < list_of_numbers.index(rule[1])):
+        marked_incorrect = True
   if not marked_incorrect:
     totallines += 1
     totalmidnumber += int(list_of_numbers[len(list_of_numbers) // 2])
